@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UrbanFurn | Home Furnishing Solutions</title>
+
+<style>
+/* ================= RESET ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+a{text-decoration:none;color:inherit;}
+body{background:#fff;color:#111;line-height:1.6;}
+
+/* ================= COLORS ================= */
+:root{
+  --black:#0f0f0f;
+  --yellow:#f5c400;
+  --gray:#f6f6f6;
+}
+
+/* ================= NAVBAR ================= */
+header{
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(0,0,0,.9);
+  backdrop-filter:blur(6px);
+  padding:18px 60px;
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:1000;
+}
+header h1{color:#fff;font-size:22px;}
+nav a{margin-left:30px;font-size:14px;color:#ddd;}
+nav a:hover{color:var(--yellow);}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  padding-top:80px; /* offset for fixed navbar */
+
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("hero.jpg");
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  align-items:center;        /* vertical centering */
+  justify-content:center;    /* horizontal centering */
+  text-align:center;         /* center text */
+}
+
+.hero-content{
+  max-width:800px;
+  color:#fff;
+}
+.hero h2{font-size:54px;line-height:1.2;margin-bottom:20px;}
+.hero h2 span{color:var(--yellow);}
+.hero p{color:#ddd;font-size:18px;margin-bottom:40px;}
+.btn{
+  background:var(--yellow);
+  color:#000;
+  padding:16px 34px;
+  font-weight:600;
+  border-radius:6px;
+  cursor:pointer;
+  display:inline-block;
+}
+.hero .btn{
+  margin-top:10px;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.hero .btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  background:#000000; /* slightly lighter yellow */
+  color: #f5c400;
+}
+
+
+
+/* ================= GLOBAL SECTIONS ================= */
+section{padding:100px 60px;}
+section h3{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:60px;
+  position:relative;
+}
+section h3::after{
+  content:"";
+  width:60px;height:3px;
+  background:var(--yellow);
+  display:block;
+  margin:18px auto 0;
+  border-radius:2px;
+}
+
+/* ================= SERVICES ================= */
+.service-grid{
+  max-width:1200px;margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+.service-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 25px 50px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.service-card:hover{transform:translateY(-6px);}
+.service-card img{width:100%;height:180px;object-fit:cover;}
+.service-card div{padding:25px;}
+.service-card p{color:#555;font-size:14px;}
+
+/* ================= WHY ================= */
+.why{
+  background:
+    linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),
+    url("why-bg.jpg");
+  background-size:cover;background-position:center;
+}
+.why-grid{
+  max-width:1100px;margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+}
+.why-box{
+  background:#fff;
+  padding:35px;
+  border-radius:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.why-box:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.12);
+}
+.why-box h4::before{
+  content:"✔";
+  color:var(--yellow);
+  margin-right:8px;
+}
+.why-box p{color:#555;font-size:14px;}
+
+/* ================= PROCESS ================= */
+.process{
+  max-width:1200px;
+  margin:auto;
+}
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+.process-card{
+  background:#fff;
+  padding:45px 30px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.process-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(0,0,0,.12);
+}
+.process-card span{
+  font-size:38px;
+  font-weight:700;
+  color:var(--yellow);
+  display:block;
+  margin-bottom:18px;
+}
+.process-card h4{
+  font-size:18px;
+  margin-bottom:10px;
+}
+.process-card p{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+}
+
+/* ================= ABOUT ================= */
+.about{
+  background:
+    linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),
+    url("about-bg.jpg");
+  background-size:cover;background-position:center;
+}
+.about-container{
+  max-width:1000px;
+  margin:auto;
+  background:#fff;
+  padding:70px;
+  border-radius:20px;
+  box-shadow:0 30px 70px rgba(0,0,0,.1);
+}
+.about p{color:#444;line-height:1.9;}
+
+/* ================= CTA ================= */
+.cta{background:var(--black);color:#fff;text-align:center;}
+.cta p{color:#ccc;margin-bottom:30px;}
+
+.cta .btn{
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    color .25s ease;
+}
+
+.cta .btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
+  background:#ffffff;
+  color:#000000;
+}
+
+.cta .btn:active{
+  transform:translateY(-1px);
+  box-shadow:0 6px 15px rgba(0,0,0,.35);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#000;color:#777;text-align:center;
+  padding:20px;font-size:14px;
+}
+
+/* ================= CONTACT MODAL ================= */
+.contact-modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  display:none;align-items:center;justify-content:center;z-index:2000;
+}
+.contact-box{
+  background:#fff;padding:40px;border-radius:18px;
+  width:90%;max-width:380px;text-align:center;position:relative;
+}
+.whatsapp-btn{
+  display:block;background:#25D366;color:#fff;
+  padding:14px;border-radius:8px;font-weight:600;
+}
+.close-btn{
+  position:absolute;top:14px;right:18px;
+  font-size:26px;cursor:pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1024px){
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  header{padding:15px 25px;}
+  .hero{height:auto;padding:120px 25px 80px;}
+  .hero h2{font-size:36px;}
+  section{padding:70px 25px;}
+  .about-container{padding:40px;}
+}
+@media(max-width:600px){
+  .process-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>UrbanFurn</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Premium <span>Home Furnishing</span><br>Without the Hassle</h2>
+    <p>Designed with engineering precision. Delivered with care.</p>
+    <a class="btn" onclick="openContact()">Get Free Consultation</a>
+  </div>
+</section>
+
+<section class="services">
+  <h3>Furnishing Solutions</h3>
+  <div class="service-grid">
+    <div class="service-card"><img src="wardrobes.jpg"><div><h4>Wardrobes</h4><p>Custom and modular wardrobes built for durability.</p></div></div>
+    <div class="service-card"><img src="beds.webp"><div><h4>Beds</h4><p>Strong bed frames with premium finishes.</p></div></div>
+    <div class="service-card"><img src="sofas.jpg"><div><h4>Sofas</h4><p>Comfort-focused sofas for everyday use.</p></div></div>
+    <div class="service-card"><img src="dining-table.jpg"><div><h4>Dining Tables</h4><p>Balanced dining tables for modern homes.</p></div></div>
+    <div class="service-card"><img src="storage.jpg"><div><h4>Storage Units</h4><p>TV units, cabinets, and storage furniture.</p></div></div>
+    <div class="service-card"><img src="study.jpg"><div><h4>Study & Workstations</h4><p>Desks and workstations designed for productivity.</p></div></div>
+    <div class="service-card"><img src="lighting.jpg"><div><h4>Lighting</h4><p>Functional and ambient lighting solutions.</p></div></div>
+    <div class="service-card"><img src="curtains.jpg"><div><h4>Curtains & Soft Furnishings</h4><p>Custom curtains and soft décor elements.</p></div></div>
+  </div>
+</section>
+
+<section class="why">
+  <h3>Why Choose UrbanFurn</h3>
+  <div class="why-grid">
+    <div class="why-box"><h4>Perfect Planning</h4><p>Precision-led decisions.</p></div>
+    <div class="why-box"><h4>Quality Materials</h4><p>Built to last.</p></div>
+    <div class="why-box"><h4>Transparent Pricing</h4><p>No surprises.</p></div>
+    <div class="why-box"><h4>Single Contact</h4><p>Clear communication.</p></div>
+  </div>
+</section>
+
+<section class="process">
+  <h3>How It Works</h3>
+  <div class="process-grid">
+    <div class="process-card"><span>01</span><h4>Consultation</h4><p>Understanding your space and needs.</p></div>
+    <div class="process-card"><span>02</span><h4>Design & Selection</h4><p>Curated furniture and finishes.</p></div>
+    <div class="process-card"><span>03</span><h4>Pricing & Timeline</h4><p>Clear costs and delivery dates.</p></div>
+    <div class="process-card"><span>04</span><h4>Execution</h4><p>Professional installation.</p></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-container">
+    <h3>About UrbanFurn</h3>
+    <p>
+      UrbanFurn is a startup founded by engineering students who apply structured thinking,
+      quality control, and system-driven execution to home furnishing. Our mission is to remove
+      confusion, delays, and inconsistency from furnishing homes by delivering durable,
+      well-designed furniture through a transparent and reliable process.
+    </p>
+  </div>
+</section>
+
+<section class="cta">
+  <h3>Furnish Your Home, Stress-Free</h3>
+  <p>Talk to our team today.</p>
+  <a class="btn" onclick="openContact()">Book a Call</a>
+</section>
+
+<footer>© 2026 UrbanFurn. All rights reserved.</footer>
+
+<div class="contact-modal" id="contactModal">
+  <div class="contact-box">
+    <span class="close-btn" onclick="closeContact()">×</span>
+    <p><strong>Phone:</strong><br><a href="tel:+919108063329">+91 91080 63329</a></p>
+    <a href="https://wa.me/919108063329" target="_blank" class="whatsapp-btn">Chat on WhatsApp</a>
+  </div>
+</div>
+
+<script>
+function openContact(){document.getElementById("contactModal").style.display="flex";}
+function closeContact(){document.getElementById("contactModal").style.display="none";}
+</script>
+
+</body>
+</html>
