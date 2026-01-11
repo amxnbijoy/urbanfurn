@@ -6,19 +6,17 @@
 <title>UrbanFurn | Home Furnishing Solutions</title>
 
 <style>
-/* ================= RESET ================= */
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
 a{text-decoration:none;color:inherit;}
 body{background:#fff;color:#111;line-height:1.6;}
 
-/* ================= COLORS ================= */
 :root{
   --black:#0f0f0f;
   --yellow:#f5c400;
   --gray:#f6f6f6;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 header{
   position:fixed;top:0;left:0;width:100%;
   background:rgba(0,0,0,.9);
@@ -31,10 +29,16 @@ header h1{color:#fff;font-size:22px;}
 nav a{margin-left:30px;font-size:14px;color:#ddd;}
 nav a:hover{color:var(--yellow);}
 
-/* ================= HERO ================= */
+/* ================= LOGO ================= */
+.logo img{
+  height:42px;
+  width:auto;
+  display:block;
+}
+
+/* HERO */
 .hero{
-  min-height:100vh;
-  padding-top:80px;
+  height:100vh;
   background:
     linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
     url("hero.jpg");
@@ -44,8 +48,9 @@ nav a:hover{color:var(--yellow);}
   align-items:center;
   justify-content:center;
   text-align:center;
+  padding:0 60px;
 }
-.hero-content{max-width:800px;color:#fff;}
+.hero-content{max-width:700px;color:#fff;}
 .hero h2{font-size:54px;margin-bottom:20px;}
 .hero h2 span{color:var(--yellow);}
 .hero p{color:#ddd;font-size:18px;margin-bottom:40px;}
@@ -56,7 +61,6 @@ nav a:hover{color:var(--yellow);}
   justify-content:center;
   flex-wrap:wrap;
 }
-
 .btn{
   background:var(--yellow);
   color:#000;
@@ -64,23 +68,14 @@ nav a:hover{color:var(--yellow);}
   font-weight:600;
   border-radius:6px;
   cursor:pointer;
-  display:inline-block;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease,
-    color .25s ease;
+  transition:.25s;
 }
-
-/* Hero primary button */
 .hero .btn:hover{
   transform:translateY(-3px);
   box-shadow:0 12px 30px rgba(0,0,0,.35);
   background:#000;
   color:#f5c400;
 }
-
-/* Secondary outline button */
 .btn-outline{
   background:transparent;
   border:2px solid var(--yellow);
@@ -91,7 +86,7 @@ nav a:hover{color:var(--yellow);}
   color:#000;
 }
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 section{padding:100px 60px;}
 section h3{
   text-align:center;
@@ -106,7 +101,7 @@ section h3::after{
   margin:18px auto 0;
 }
 
-/* ================= SERVICES ================= */
+/* SERVICES */
 .service-grid{
   max-width:1200px;margin:auto;
   display:grid;
@@ -123,9 +118,15 @@ section h3::after{
 .service-card:hover{transform:translateY(-6px);}
 .service-card img{width:100%;height:180px;object-fit:cover;}
 .service-card div{padding:25px;}
+.service-card p{color:#555;font-size:14px;}
 
-/* ================= WHY ================= */
-.why{background:var(--gray);}
+/* WHY */
+.why{
+  background:
+    linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),
+    url("images/why-bg.jpg");
+  background-size:cover;
+}
 .why-grid{
   max-width:1100px;margin:auto;
   display:grid;
@@ -138,8 +139,9 @@ section h3::after{
   border-radius:16px;
   box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
+.why-box h4::before{content:"✔ ";color:var(--yellow);}
 
-/* ================= PROCESS ================= */
+/* PROCESS */
 .process-grid{
   max-width:1200px;margin:auto;
   display:grid;
@@ -153,8 +155,12 @@ section h3::after{
   box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
 
-/* ================= ABOUT ================= */
-.about{background:var(--gray);}
+/* ABOUT */
+.about{
+  background:
+    linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),
+    url("images/about-bg.jpg");
+}
 .about-container{
   max-width:1000px;
   margin:auto;
@@ -163,22 +169,53 @@ section h3::after{
   border-radius:20px;
 }
 
-/* ================= CTA ================= */
+/* CTA */
 .cta{background:var(--black);color:#fff;text-align:center;}
+.cta p{color:#ccc;margin-bottom:30px;}
 .cta .btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(0,0,0,.45);
   background:#fff;
   color:#000;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
-  background:#000;color:#777;
-  text-align:center;padding:20px;
+  background:#000;
+  color:#777;
+  text-align:center;
+  padding:20px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* MODAL */
+.contact-modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.contact-box{
+  background:#fff;
+  padding:40px;
+  border-radius:18px;
+  width:90%;max-width:380px;
+  text-align:center;
+}
+.whatsapp-btn{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  padding:14px;
+  border-radius:8px;
+  font-weight:600;
+}
+.close-btn{
+  position:absolute;
+  top:14px;right:18px;
+  font-size:26px;
+  cursor:pointer;
+}
+
 @media(max-width:768px){
   header{padding:15px 25px;}
   .hero h2{font-size:36px;}
@@ -191,7 +228,9 @@ footer{
 <body>
 
 <header>
-  <h1>UrbanFurn</h1>
+    <a href="#" class="logo">
+    <img src="logo.png" alt="UrbanFurn Logo">
+    </a>
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
@@ -203,7 +242,6 @@ footer{
   <div class="hero-content">
     <h2>Premium <span>Home Furnishing</span><br>Without the Hassle</h2>
     <p>Designed with engineering precision. Delivered with care.</p>
-
     <div class="hero-buttons">
       <a class="btn" onclick="openContact()">Get Free Consultation</a>
       <a class="btn btn-outline" href="gallery.html">View Gallery</a>
@@ -211,15 +249,68 @@ footer{
   </div>
 </section>
 
-<!-- ALL YOUR ORIGINAL SECTIONS CONTINUE BELOW (UNCHANGED) -->
+<!-- SERVICES -->
+<section class="services">
+  <h3>Furnishing Solutions</h3>
+  <div class="service-grid">
+    <div class="service-card"><img src="wardrobes.jpg"><div><h4>Wardrobes</h4><p>Custom modular wardrobes.</p></div></div>
+    <div class="service-card"><img src="beds.webp"><div><h4>Beds</h4><p>Premium bed frames.</p></div></div>
+    <div class="service-card"><img src="sofas.jpg"><div><h4>Sofas</h4><p>Comfort-driven seating.</p></div></div>
+    <div class="service-card"><img src="dining-table.jpg"><div><h4>Dining Tables</h4><p>Balanced modern dining.</p></div></div>
+    <div class="service-card"><img src="storage.jpg"><div><h4>Storage Units</h4><p>TV units & cabinets.</p></div></div>
+    <div class="service-card"><img src="study.jpg"><div><h4>Study Units</h4><p>Productive workspaces.</p></div></div>
+    <div class="service-card"><img src="lighting.jpg"><div><h4>Lighting</h4><p>Ambient & functional.</p></div></div>
+    <div class="service-card"><img src="curtains.jpg"><div><h4>Curtains</h4><p>Soft furnishings.</p></div></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <h3>Why Choose UrbanFurn</h3>
+  <div class="why-grid">
+    <div class="why-box"><h4>Planning</h4><p>Engineer-led execution.</p></div>
+    <div class="why-box"><h4>Materials</h4><p>Quality-first sourcing.</p></div>
+    <div class="why-box"><h4>Pricing</h4><p>No hidden costs.</p></div>
+    <div class="why-box"><h4>Support</h4><p>Single point contact.</p></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <h3>How It Works</h3>
+  <div class="process-grid">
+    <div class="process-card"><h4>Consult</h4><p>Understand needs.</p></div>
+    <div class="process-card"><h4>Design</h4><p>Curated solutions.</p></div>
+    <div class="process-card"><h4>Price</h4><p>Clear timelines.</p></div>
+    <div class="process-card"><h4>Execute</h4><p>Professional install.</p></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-container">
+    <h3>About UrbanFurn</h3>
+    <p>
+      UrbanFurn is built by engineering students applying systems,
+      quality control, and structured execution to home furnishing.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h3>Furnish Your Home, Stress-Free</h3>
+  <p>Talk to our team today.</p>
+  <a class="btn" onclick="openContact()">Book a Call</a>
+</section>
 
 <footer>© 2026 UrbanFurn. All rights reserved.</footer>
 
 <div class="contact-modal" id="contactModal">
   <div class="contact-box">
     <span class="close-btn" onclick="closeContact()">×</span>
-    <p><strong>Phone:</strong><br><a href="tel:+919108063329">+91 91080 63329</a></p>
-    <a href="https://wa.me/919108063329" target="_blank" class="whatsapp-btn">Chat on WhatsApp</a>
+    <p><strong>Phone:</strong><br>+91 91080 63329</p>
+    <a href="https://wa.me/919108063329" class="whatsapp-btn">Chat on WhatsApp</a>
   </div>
 </div>
 
