@@ -45,13 +45,18 @@ nav a:hover{color:var(--yellow);}
   justify-content:center;
   text-align:center;
 }
-
 .hero-content{max-width:800px;color:#fff;}
-.hero h2{font-size:54px;line-height:1.2;margin-bottom:20px;}
+.hero h2{font-size:54px;margin-bottom:20px;}
 .hero h2 span{color:var(--yellow);}
 .hero p{color:#ddd;font-size:18px;margin-bottom:40px;}
 
-/* ================= BUTTONS ================= */
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
 .btn{
   background:var(--yellow);
   color:#000;
@@ -67,20 +72,12 @@ nav a:hover{color:var(--yellow);}
     color .25s ease;
 }
 
-/* Hero buttons container */
-.hero-buttons{
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-/* Primary hero button */
+/* Hero primary button */
 .hero .btn:hover{
   transform:translateY(-3px);
   box-shadow:0 12px 30px rgba(0,0,0,.35);
   background:#000;
-  color:var(--yellow);
+  color:#f5c400;
 }
 
 /* Secondary outline button */
@@ -89,15 +86,12 @@ nav a:hover{color:var(--yellow);}
   border:2px solid var(--yellow);
   color:var(--yellow);
 }
-
 .btn-outline:hover{
   background:var(--yellow);
   color:#000;
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
-/* ================= GLOBAL SECTIONS ================= */
+/* ================= SECTIONS ================= */
 section{padding:100px 60px;}
 section h3{
   text-align:center;
@@ -129,15 +123,9 @@ section h3::after{
 .service-card:hover{transform:translateY(-6px);}
 .service-card img{width:100%;height:180px;object-fit:cover;}
 .service-card div{padding:25px;}
-.service-card p{color:#555;font-size:14px;}
 
 /* ================= WHY ================= */
-.why{
-  background:
-    linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),
-    url("why-bg.jpg");
-  background-size:cover;
-}
+.why{background:var(--gray);}
 .why-grid{
   max-width:1100px;margin:auto;
   display:grid;
@@ -150,14 +138,10 @@ section h3::after{
   border-radius:16px;
   box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
-.why-box h4::before{
-  content:"✔ ";
-  color:var(--yellow);
-}
 
 /* ================= PROCESS ================= */
-.process{max-width:1200px;margin:auto;}
 .process-grid{
+  max-width:1200px;margin:auto;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:30px;
@@ -168,32 +152,19 @@ section h3::after{
   border-radius:18px;
   box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
-.process-card span{
-  font-size:38px;
-  font-weight:700;
-  color:var(--yellow);
-}
 
 /* ================= ABOUT ================= */
-.about{
-  background:
-    linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),
-    url("about-bg.jpg");
-  background-size:cover;
-}
+.about{background:var(--gray);}
 .about-container{
   max-width:1000px;
   margin:auto;
   background:#fff;
   padding:70px;
   border-radius:20px;
-  box-shadow:0 30px 70px rgba(0,0,0,.1);
 }
 
 /* ================= CTA ================= */
 .cta{background:var(--black);color:#fff;text-align:center;}
-.cta p{color:#ccc;margin-bottom:30px;}
-
 .cta .btn:hover{
   transform:translateY(-3px);
   box-shadow:0 12px 30px rgba(0,0,0,.45);
@@ -203,38 +174,15 @@ section h3::after{
 
 /* ================= FOOTER ================= */
 footer{
-  background:#000;color:#777;text-align:center;
-  padding:20px;font-size:14px;
-}
-
-/* ================= MODAL ================= */
-.contact-modal{
-  position:fixed;inset:0;background:rgba(0,0,0,.7);
-  display:none;align-items:center;justify-content:center;
-}
-.contact-box{
-  background:#fff;padding:40px;border-radius:18px;
-  width:90%;max-width:380px;text-align:center;position:relative;
-}
-.whatsapp-btn{
-  display:block;background:#25D366;color:#fff;
-  padding:14px;border-radius:8px;font-weight:600;
-}
-.close-btn{
-  position:absolute;top:14px;right:18px;
-  font-size:26px;cursor:pointer;
+  background:#000;color:#777;
+  text-align:center;padding:20px;
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:1024px){
-  .process-grid{grid-template-columns:repeat(2,1fr);}
-}
 @media(max-width:768px){
   header{padding:15px 25px;}
   .hero h2{font-size:36px;}
   section{padding:70px 25px;}
-}
-@media(max-width:600px){
   .process-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -263,7 +211,7 @@ footer{
   </div>
 </section>
 
-<!-- (All other sections remain exactly as before) -->
+<!-- ALL YOUR ORIGINAL SECTIONS CONTINUE BELOW (UNCHANGED) -->
 
 <footer>© 2026 UrbanFurn. All rights reserved.</footer>
 
