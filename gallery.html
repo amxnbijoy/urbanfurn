@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | UrbanFurn</title>
+
+<style>
+/* ================= RESET ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+body{background:#fff;color:#111;line-height:1.6;}
+
+/* ================= COLORS ================= */
+:root{
+  --black:#0f0f0f;
+  --yellow:#f5c400;
+}
+
+/* ================= NAVBAR ================= */
+header{
+  position:fixed;top:0;left:0;width:100%;
+  background:rgba(0,0,0,.9);
+  padding:18px 60px;
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:1000;
+}
+header h1{color:#fff;font-size:22px;}
+nav a{margin-left:30px;font-size:14px;color:#ddd;text-decoration:none;}
+nav a:hover{color:var(--yellow);}
+
+/* ================= HERO ================= */
+.gallery-hero{
+  height:60vh;
+  padding-top:80px;
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("hero.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.gallery-hero h2{color:#fff;font-size:48px;}
+.gallery-hero p{color:#ddd;margin-top:10px;}
+
+/* ================= SECTIONS ================= */
+main{padding-top:60px;}
+section{
+  padding:90px 60px;
+}
+section h3{
+  font-size:34px;
+  margin-bottom:25px;
+}
+section h3::after{
+  content:"";
+  width:50px;height:3px;
+  background:var(--yellow);
+  display:block;
+  margin-top:10px;
+}
+
+/* ================= PINTEREST WRAPPER ================= */
+.board-wrap{
+  background:#fafafa;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#000;
+  color:#777;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  header{padding:15px 25px;}
+  section{padding:70px 25px;}
+  .gallery-hero h2{font-size:36px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>UrbanFurn</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</header>
+
+<section class="gallery-hero">
+  <div>
+    <h2>Design Inspirations</h2>
+  </div>
+</section>
+
+<main id="galleryContainer"></main>
+
+<footer>© 2026 UrbanFurn. All rights reserved.</footer>
+
+<!-- ================= PINTEREST BOARDS CONFIG ================= -->
+<script>
+const boards = [
+  {
+    title: "Wardrobe Designs",
+    url: "https://in.pinterest.com/amxnbijoy/wardrobes/"
+  },
+  {
+    title: "Living Room Inspirations",
+    url: "https://www.pinterest.com/YOUR_USERNAME/living-room-designs/"
+  },
+  {
+    title: "Bedroom Concepts",
+    url: "https://www.pinterest.com/YOUR_USERNAME/bedroom-designs/"
+  },
+  {
+    title: "Kitchen & Storage",
+    url: "https://www.pinterest.com/YOUR_USERNAME/kitchen-storage/"
+  },
+  {
+    title: "Lighting & Ambience",
+    url: "https://www.pinterest.com/YOUR_USERNAME/lighting-ideas/"
+  }
+];
+
+const container = document.getElementById("galleryContainer");
+
+boards.forEach(board => {
+  const section = document.createElement("section");
+
+  section.innerHTML = `
+    <h3>${board.title}</h3>
+    <div class="board-wrap">
+      <a
+        data-pin-do="embedBoard"
+        data-pin-board-width="900"
+        data-pin-scale-height="600"
+        data-pin-scale-width="80"
+        href="${board.url}">
+      </a>
+    </div>
+  `;
+
+  container.appendChild(section);
+});
+</script>
+
+<!-- PINTEREST SCRIPT -->
+<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</body>
+</html>
